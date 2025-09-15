@@ -14,6 +14,10 @@ class CharactersController extends GetxController {
 
   var characters = <Character>[].obs;
   var isLoading = false.obs;
+  var isLoadingMore = false.obs;
+
+  int _currentPage = 1;
+  bool _hasMore = true;
 
   @override
   void onInit() {
@@ -22,8 +26,35 @@ class CharactersController extends GetxController {
   }
 
   Future<void> fetchCharacters() async {
-    isLoading.value = true;
-    characters.value = await getCharacters();
-    isLoading.value = false;
+    try {
+      isLoading.value = true;
+      final result = await getCharacters(page: _currentPage);
+
+      characters.assignAll(result);
+
+      if (result.isEmpty) {
+        _hasMore = false;
+      }
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  Future<void> loadMoreCharacters() async {
+    if (!_hasMore || isLoadingMore.value) return;
+
+    try {
+      isLoadingMore.value = true;
+      _currentPage++;
+      final result = await getCharacters(page: _currentPage);
+
+      if (result.isEmpty) {
+        _hasMore = false;
+      } else {
+        characters.addAll(result);
+      }
+    } finally {
+      isLoadingMore.value = false;
+    }
   }
 }
