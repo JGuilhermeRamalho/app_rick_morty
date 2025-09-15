@@ -1,16 +1,37 @@
-# app_rick_morty
+# 🌀 Rick and Morty Characters App
 
-A new Flutter project.
+Aplicativo Flutter que exibe uma lista de personagens da série Rick and Morty. Ao tocar em um card, um showModalBottomSheet exibe detalhes do personagem.
 
-## Getting Started
+O projeto segue a Clean Architecture para melhor organização e manutenção do código.
 
-This project is a starting point for a Flutter application.
+# 📦 Tecnologias e Pacotes Utilizados
 
-A few resources to get you started if this is your first Flutter project:
+Flutter – SDK principal.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+http (^1.5.0) – Requisições à API.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+get (^4.7.2) – Gerenciamento de estado e navegação.
+
+get_it (^8.2.0) – Injeção de dependências.
+
+flutter_svg (^2.2.1) – Renderização de imagens SVG.
+
+Arquitetura Limpa (Clean Architecture):
+
+Domain – Entidades e casos de uso.
+
+Data – Modelos, repositórios e fontes de dados (API).
+
+Presentation – UI, controllers e widgets.
+
+# ⚡ Funcionalidades
+
+Lista de personagens da série Rick and Morty.
+
+showModalBottomSheet com detalhes do personagem.
+
+Gerenciamento de estado reativo com GetX.
+
+Injeção de dependências com binding.
+
+[⬇️ Baixar APK](apk/app-release.apk)
